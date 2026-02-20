@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bxnra4l0evotf" path="res://scenes/killzone.tscn" id="6_p57ef"]
 [ext_resource type="FontFile" uid="uid://cmiyacib1y1ic" path="res://assets/fonts/PixelOperator8.ttf" id="7_u5sy4"]
 [ext_resource type="Script" uid="uid://cbl12ai6jhhaq" path="res://scripts/next_level1.gd" id="10_vtaks"]
+[ext_resource type="PackedScene" uid="uid://bwuhok6gbfw82" path="res://scenes/pause.tscn" id="12_dinhu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lbhrr"]
 texture = ExtResource("3_lnu2h")
@@ -263,6 +264,9 @@ script = ExtResource("10_vtaks")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1067702143]
 position = Vector2(-5, -26)
 shape = SubResource("RectangleShape2D_kvpfn")
+
+[node name="pause" parent="." unique_id=2090491981 instance=ExtResource("12_dinhu")]
+visible = false
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

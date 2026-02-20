@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bqaqn5k4aiwi0"]
+
+[ext_resource type="Script" uid="uid://dgdmnyopgpwsh" path="res://scripts/salida_nivel.gd" id="1_hlufl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pa1y8"]
+size = Vector2(61, 59)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y5p6h"]
+size = Vector2(56.75, 58.75)
+
+[node name="SalidaNivel" type="Node2D" unique_id=1364949578]
+script = ExtResource("1_hlufl")
+
+[node name="MetaPrincipal" type="Area2D" parent="." unique_id=2122430810]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MetaPrincipal" unique_id=675316819]
+position = Vector2(58.5, 31.5)
+shape = SubResource("RectangleShape2D_pa1y8")
+
+[node name="MetaEspejo" type="Area2D" parent="." unique_id=81841216]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MetaEspejo" unique_id=202158382]
+position = Vector2(291.625, 30.375)
+shape = SubResource("RectangleShape2D_y5p6h")
+
+[connection signal="body_entered" from="MetaPrincipal" to="." method="_on_meta_principal_body_entered"]
+[connection signal="body_exited" from="MetaPrincipal" to="." method="_on_meta_principal_body_exited"]
+[connection signal="body_entered" from="MetaEspejo" to="." method="_on_meta_espejo_body_entered"]
+[connection signal="body_exited" from="MetaEspejo" to="." method="_on_meta_espejo_body_exited"]
