@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://34c8ybho77ps"]
+
+[ext_resource type="Texture2D" uid="uid://vmcs51rfjsf6" path="res://assets/sprites/platforms.png" id="1_kvd1j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cbp6d"]
+size = Vector2(44, 9)
+
+[sub_resource type="Animation" id="Animation_cbp6d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ms375"]
+resource_name = "move"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 150), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1tdcd"]
+_data = {
+&"RESET": SubResource("Animation_cbp6d"),
+&"move": SubResource("Animation_ms375")
+}
+
+[node name="MovingPlatform" type="Node2D" unique_id=657899610]
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=735999698]
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D" unique_id=1788186402]
+position = Vector2(21, 5)
+scale = Vector2(1.375, 1)
+texture = ExtResource("1_kvd1j")
+region_enabled = true
+region_rect = Rect2(16, 32, 32, 9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=1725065549]
+position = Vector2(21, 4.5)
+shape = SubResource("RectangleShape2D_cbp6d")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatableBody2D" unique_id=703556004]
+libraries/ = SubResource("AnimationLibrary_1tdcd")
+autoplay = &"move"

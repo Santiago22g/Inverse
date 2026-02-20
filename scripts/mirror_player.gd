@@ -4,6 +4,10 @@ extends CharacterBody2D
 const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
 
+var health = 100
+
+func die():
+	get_tree().call_deferred("change_scene_to_file", "res://scenes/game_over.tscn")
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.

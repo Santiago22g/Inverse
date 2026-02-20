@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ci30w3qsmu8oo"]
+
+[ext_resource type="Texture2D" uid="uid://b6v5pdribgjl6" path="res://assets/sprites/16-bit-spike-Sheet.png" id="1_ljd5v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7a7y0"]
+size = Vector2(9, 11)
+
+[node name="Node2D" type="Node2D" unique_id=215846999]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=213085682]
+position = Vector2(48, 23)
+texture = ExtResource("1_ljd5v")
+region_enabled = true
+region_rect = Rect2(0, 0, 15, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2022385725]
+position = Vector2(48.5, 25.5)
+shape = SubResource("RectangleShape2D_7a7y0")

@@ -125,11 +125,6 @@ animations = [{
 "name": &"jump",
 "speed": 9.0
 }, {
-"frames": [],
-"loop": true,
-"name": &"new_animation",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_f1ej7")
@@ -165,7 +160,7 @@ script = ExtResource("1_g2els")
 z_index = 5
 position = Vector2(1, -16)
 sprite_frames = SubResource("SpriteFrames_tuyoq")
-animation = &"new_animation"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=348136382]
